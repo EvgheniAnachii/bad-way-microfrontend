@@ -1,0 +1,4 @@
+node_modules/**
+next.config.js
+__mocks__/**
+__tests__/**
