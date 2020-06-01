@@ -37,7 +37,7 @@ export const App = (props: Props) => {
       </nav>*/}
 
       <Switch>
-        <Route path="/modules/feedback">
+        <Route path="/">
           <FeedbackContainer/>
         </Route>
       </Switch>

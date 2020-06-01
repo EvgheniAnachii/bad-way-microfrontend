@@ -1,22 +1,28 @@
 const express = require('express');
 const compression = require('compression');
 const path = require('path');
+const https = require('https');
+const fs = require('fs');
+const cors = require('cors');
 
-const port = process.env.PORT || 3030;
+const port = 8081/*process.env.PORT || 8080*/;
 const app = express();
 
 const serverRootPath = path.join(__dirname + '/../dist');
 
-app.use(compression());
-app.use(express.static(serverRootPath, {
+app.use(cors());
+/*app.use(compression());*/
+app.use('/', express.static(serverRootPath));
+
+/*app.use(express.static(serverRootPath, {
   // maxAge: 31557600000
-}));
-app.get('*', (_, response) => {
+}));*/
+/*app.get('*', (_, response) => {
   response.sendFile(path.resolve(serverRootPath, 'index.html'));
-});
+});*/
 
 app.listen(port, () => {
-  console.log(`Server root path: ${serverRootPath}`);
-  console.log(`Server started on port ${port}. Visit http://localhost:${port}/`);
-  console.log('Press CTRL + C to stop the server');
-});
+		console.log(`Server root path: ${serverRootPath}`);
+		console.log(`Server started on port ${port}. Visit https://localhost:${port}/`);
+		console.log('Press CTRL + C to stop the server');
+	});

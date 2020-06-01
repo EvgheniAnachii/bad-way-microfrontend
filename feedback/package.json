@@ -19,7 +19,11 @@
     "prod": "npm run build-prod; npm start",
     "clean": "rm dist/*",
     "fix": "eslint --fix --ext .ts,.tsx .",
-    "pretest": "eslint --ext .ts,.tsx ."
+    "pretest": "eslint --ext .ts,.tsx .",
+    "docker-build": "docker build --tag feedback:1.0 .",
+    "docker-run": "docker run --publish 8000:8081 --detach --name feedback feedback:1.0",
+    "docker-build-run": "npm run docker-build && npm run docker-run",
+    "docker-remove-container": "docker rm --force feedback"
   },
   "dependencies": {
     "@types/react-loadable": "^5.5.3",

@@ -14,17 +14,17 @@ class MicroFrontend extends React.Component<any, any> {
       .then((response: any) => response.json())
       .then((manifest: any) => {
         const script = document.createElement('script')
-        script.id = scriptId;
+        script.id = scriptId
         script.src = `${host}${manifest['main.js']}`
-        script.onload = this.renderMicroFrontend
         document.head.appendChild(script)
 
-
         const link = document.createElement('link')
-        link.id = scriptId;
-        script.src = `${host}${manifest['main.css']}`
-        script.onload = this.renderMicroFrontend
+        link.id = scriptId
+        link.rel = 'stylesheet'
+        link.href = `${host}${manifest['main.css']}`
         document.head.appendChild(link)
+
+        script.onload = this.renderMicroFrontend
       })
       .catch((error: any) => {
         console.error('Error:', error)

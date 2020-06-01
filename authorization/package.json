@@ -19,7 +19,11 @@
     "prod": "npm run build-prod; npm start",
     "clean": "rm dist/*",
     "fix": "eslint --fix --ext .ts,.tsx .",
-    "pretest": "eslint --ext .ts,.tsx ."
+    "pretest": "eslint --ext .ts,.tsx .",
+    "docker-build": "docker build --tag authorization:1.0 .",
+    "docker-run": "docker run --publish 8001:8080 --detach --name authorization myapp:1.0",
+    "docker-build-run": "npm run docker-build && npm run docker-run",
+    "docker-remove-container": "docker rm --force authorization"
   },
   "dependencies": {
     "@types/react-loadable": "^5.5.3",

@@ -26,11 +26,11 @@ const LazyReporting = Loadable({
 })
 
 const MyPicker = () => {
-  const [startDate, setStartDate] = React.useState(new Date());
+  const [startDate, setStartDate] = React.useState(new Date())
   return (
     <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-  );
-};
+  )
+}
 
 const FeedbackContainer = () => {
   const match = useRouteMatch()
